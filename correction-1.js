@@ -6,7 +6,7 @@ async function start() {
     const { data } = await get('https://people.sc.fsu.edu/~jburkardt/data/csv/deniro.csv');
     const movies = convertCSVToMovies(data);
     const moviesGroupedByYear = groupByYear(movies);
-    await fs.writeFile(path.join(__dirname, `movies_${Date()}.json`), JSON.stringify(moviesGroupedByYear, undefined, 2));
+    await fs.writeFile(path.join(__dirname, `movies_${Date.now()}.json`), JSON.stringify(moviesGroupedByYear, undefined, 2));
 }
 
 function convertCSVToMovies(csvData){
